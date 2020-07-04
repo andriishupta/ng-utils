@@ -2,5 +2,49 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "stateful": {
+      "projectType": "library",
+      "root": "projects/stateful",
+      "sourceRoot": "projects/stateful/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/stateful/tsconfig.lib.json",
+            "project": "projects/stateful/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/stateful/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/stateful/src/test.ts",
+            "tsConfig": "projects/stateful/tsconfig.spec.json",
+            "karmaConfig": "projects/stateful/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/stateful/tsconfig.lib.json",
+              "projects/stateful/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "b74cf43b-216f-42cb-85eb-498c8ffedd17"
+  },
+  "defaultProject": "stateful"
 }
