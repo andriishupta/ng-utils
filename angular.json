@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/stateful",
       "sourceRoot": "projects/stateful/src",
-      "prefix": "lib",
+      "prefix": "ng-utils",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
